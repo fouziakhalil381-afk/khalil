@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Khalil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", Arial, sans-serif;
+        text-align: center;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 25px;
+        padding: 35px;
+        max-width: 650px;
+        color: white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        animation: fadeIn 2s ease;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-weight: normal;
+        margin-top: 5px;
+    }
+
+    .date {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        opacity: 0.9;
+    }
+
+    .note {
+        margin-top: 25px;
+        font-size: 1.15rem;
+        line-height: 1.7;
+    }
+
+    .signature {
+        margin-top: 25px;
+        font-size: 1.1rem;
+        font-style: italic;
+    }
+
+    @keyframes fadeIn {
+        from {opacity:0; transform: translateY(20px);}
+        to {opacity:1; transform: translateY(0);}
+    }
+
+    .balloon {
+        position: absolute;
+        bottom: -150px;
+        width: 55px;
+        height: 75px;
+        border-radius: 50%;
+        animation: float 9s infinite ease-in;
+        opacity: 0.9;
+    }
+
+    @keyframes float {
+        from { transform: translateY(0); }
+        to { transform: translateY(-130vh); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎉 Happy Birthday Khalil 🎂</h1>
+    <h2>The greatest father and my forever hero</h2>
+    <div class="date">📅 2 February</div>
+
+    <div class="note">
+        Dear Father,<br><br>
+        Today is not just another day — it is a celebration of **you**.  
+        Your hard work, patience, kindness, and sacrifices have shaped my life in ways
+        words can never fully express. You are my strength when I feel weak,
+        my guide when I am lost, and my biggest inspiration every single day.<br><br>
+
+        Thank you for every lesson you taught, every smile you gave,
+        and every silent prayer you made for me.
+        I pray that your life continues to be filled with good health,
+        peace, happiness, and countless beautiful moments.<br><br>
+
+        May Allah bless you with a long life, protect you always,
+        and keep your heart full of joy.  
+        You mean more to me than I could ever say.
+    </div>
+
+    <div class="signature">
+        — With all my love ❤️
+    </div>
+</div>
+
+<!-- Birthday Music -->
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    // Floating balloons effect
+    for (let i = 0; i < 25; i++) {
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.left = Math.random() * 100 + "vw";
+        balloon.style.background = `hsl(${Math.random()*360}, 80%, 60%)`;
+        balloon.style.animationDuration = 6 + Math.random()*6 + "s";
+        document.body.appendChild(balloon);
+    }
+</script>
+
+</body>
+</html>
