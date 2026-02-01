@@ -1,130 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Happy Birthday Khalil</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
-    body {
-        margin: 0;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #ff758c, #ff7eb3);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-family: "Segoe UI", Arial, sans-serif;
-        text-align: center;
-        overflow: hidden;
-        padding: 20px;
-    }
+:root {
+  --glass: rgba(255,255,255,0.18);
+}
 
-    .card {
-        background: rgba(255,255,255,0.15);
-        backdrop-filter: blur(10px);
-        border-radius: 25px;
-        padding: 35px;
-        max-width: 650px;
-        color: white;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        animation: fadeIn 2s ease;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #ff9aa2, #ff5e9c, #5f2cff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, Arial, sans-serif;
+  overflow: hidden;
+  color: white;
+}
 
-    h2 {
-        font-weight: normal;
-        margin-top: 5px;
-    }
+/* Stars background */
+.stars span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  opacity: 0.8;
+  animation: twinkle 5s infinite ease-in-out;
+}
 
-    .date {
-        font-size: 1.2rem;
-        margin-top: 10px;
-        opacity: 0.9;
-    }
+@keyframes twinkle {
+  0%,100% {opacity:0.2}
+  50% {opacity:1}
+}
 
-    .note {
-        margin-top: 25px;
-        font-size: 1.15rem;
-        line-height: 1.7;
-    }
+/* Card */
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(18px);
+  border-radius: 30px;
+  padding: 40px;
+  max-width: 720px;
+  width: 92%;
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+  animation: pop 1.6s ease;
+}
 
-    .signature {
-        margin-top: 25px;
-        font-size: 1.1rem;
-        font-style: italic;
-    }
+@keyframes pop {
+  from {transform: scale(.7); opacity:0}
+  to {transform: scale(1); opacity:1}
+}
 
-    @keyframes fadeIn {
-        from {opacity:0; transform: translateY(20px);}
-        to {opacity:1; transform: translateY(0);}
-    }
+h1 {
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  margin: 0;
+}
 
-    .balloon {
-        position: absolute;
-        bottom: -150px;
-        width: 55px;
-        height: 75px;
-        border-radius: 50%;
-        animation: float 9s infinite ease-in;
-        opacity: 0.9;
-    }
+.subtitle {
+  font-size: 1.2rem;
+  opacity: .95;
+}
 
-    @keyframes float {
-        from { transform: translateY(0); }
-        to { transform: translateY(-130vh); }
-    }
+.date {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.note {
+  margin-top: 25px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* Button */
+button {
+  margin-top: 30px;
+  border: none;
+  background: linear-gradient(135deg,#ffd86f,#ff9d00);
+  padding: 15px 34px;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,.3);
+  transition: .25s;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+/* Floating balloons */
+.balloon {
+  position: absolute;
+  bottom: -160px;
+  width: 55px;
+  height: 75px;
+  border-radius: 50%;
+  animation: rise linear infinite;
+  opacity: .85;
+}
+
+@keyframes rise {
+  to {transform: translateY(-130vh);}
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(120vh) rotate(720deg);
+  }
+}
 </style>
 </head>
 
 <body>
 
+<div class="stars"></div>
+
 <div class="card">
-    <h1>🎉 Happy Birthday Khalil 🎂</h1>
-    <h2>The greatest father and my forever hero</h2>
-    <div class="date">📅 2 February</div>
+  <h1>🎉 Happy Birthday Khalil 🎂</h1>
+  <div class="subtitle">The strongest father & my greatest blessing</div>
+  <div class="date">📅 2 February</div>
 
-    <div class="note">
-        Dear Father,<br><br>
-        Today is not just another day — it is a celebration of **you**.  
-        Your hard work, patience, kindness, and sacrifices have shaped my life in ways
-        words can never fully express. You are my strength when I feel weak,
-        my guide when I am lost, and my biggest inspiration every single day.<br><br>
+  <div class="note">
+    Dear Father,<br><br>
+    Today we celebrate the man whose love built my future.
+    Your sacrifices, patience, and wisdom guide me every day.
+    You taught me to stand tall, stay kind, and never give up.<br><br>
 
-        Thank you for every lesson you taught, every smile you gave,
-        and every silent prayer you made for me.
-        I pray that your life continues to be filled with good health,
-        peace, happiness, and countless beautiful moments.<br><br>
+    May Allah grant you long life, peace, health, and endless joy.
+    You are my hero, my protector, and my pride forever.
+  </div>
 
-        May Allah bless you with a long life, protect you always,
-        and keep your heart full of joy.  
-        You mean more to me than I could ever say.
-    </div>
-
-    <div class="signature">
-        — With all my love ❤️
-    </div>
+  <button onclick="playMusic()">▶ Play Birthday Music</button>
 </div>
 
-<!-- Birthday Music -->
-<audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+<audio id="music" loop>
+  <!-- Royalty-free instrumental style -->
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9dce1d9b6f.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-    // Floating balloons effect
-    for (let i = 0; i < 25; i++) {
-        const balloon = document.createElement("div");
-        balloon.className = "balloon";
-        balloon.style.left = Math.random() * 100 + "vw";
-        balloon.style.background = `hsl(${Math.random()*360}, 80%, 60%)`;
-        balloon.style.animationDuration = 6 + Math.random()*6 + "s";
-        document.body.appendChild(balloon);
-    }
+/* Stars */
+for(let i=0;i<120;i++){
+  const s=document.createElement("span");
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+  s.style.animationDelay=Math.random()*5+"s";
+  document.querySelector(".stars").appendChild(s);
+}
+
+/* Balloons */
+for(let i=0;i<25;i++){
+  const b=document.createElement("div");
+  b.className="balloon";
+  b.style.left=Math.random()*100+"vw";
+  b.style.background=`hsl(${Math.random()*360},80%,65%)`;
+  b.style.animationDuration=7+Math.random()*8+"s";
+  document.body.appendChild(b);
+}
+
+/* Confetti */
+for(let i=0;i<80;i++){
+  const c=document.createElement("div");
+  c.className="confetti";
+  c.style.left=Math.random()*100+"vw";
+  c.style.background=`hsl(${Math.random()*360},90%,60%)`;
+  c.style.animationDuration=4+Math.random()*5+"s";
+  document.body.appendChild(c);
+}
+
+/* Music */
+function playMusic(){
+  document.getElementById("music").play();
+}
 </script>
 
 </body>
