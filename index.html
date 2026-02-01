@@ -27,7 +27,7 @@ body{
   overflow:hidden;
 }
 
-/* glowing background orbs */
+/* glowing orbs */
 .orb{
   position:absolute;
   width:380px;
@@ -89,7 +89,7 @@ h1{
   margin-top:28px;
   font-size:1.15rem;
   line-height:1.85;
-  min-height:160px;
+  min-height:170px;
 }
 
 /* Button */
@@ -140,8 +140,10 @@ button:hover{transform:scale(1.08);}
   <button onclick="startExperience()">▶ Start the Surprise</button>
 </div>
 
-<audio id="music" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/10/20/audio_3b71d5c7c0.mp3" type="audio/mpeg">
+<!-- 🎵 MUSIC (with backup links) -->
+<audio id="music" loop preload="auto">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9dce1d9b6f.mp3" type="audio/mpeg">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -159,6 +161,8 @@ You will always be my hero.
 — With endless love ❤️`;
 
 let i=0;
+let started=false;
+
 function typeText(){
   if(i<text.length){
     document.getElementById("note").innerHTML +=
@@ -184,8 +188,15 @@ function fireworks(x,y){
 }
 
 function startExperience(){
-  document.getElementById("music").play();
+  if(started) return;
+  started=true;
+
+  const audio=document.getElementById("music");
+  audio.volume=0.85;
+  audio.play().catch(e=>console.log("Audio blocked:",e));
+
   typeText();
+
   setInterval(()=>{
     fireworks(
       Math.random()*window.innerWidth,
